@@ -1,5 +1,6 @@
 class Expense < ApplicationRecord
   belongs_to :user
+  has_many :allocations
   has_many :payments, through: :allocations
 
   validates :name, :icon, presence: true
