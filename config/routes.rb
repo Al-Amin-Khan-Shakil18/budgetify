@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  # Root page
+  root "expenses#index"
   # Rails restful routes
   resources :expenses, except: [:edit, :update, :destroy] do
     resources :payments, except: [:edit, :update, :destroy]

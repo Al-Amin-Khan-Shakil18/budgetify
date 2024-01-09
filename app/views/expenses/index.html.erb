@@ -1,0 +1,7 @@
+<% @expenses.each do |expense| %>
+  <%= link_to expense_path(expense) do %>
+  <%= image_tag expense.icon %>
+  <h2>Name: <%= expense.name %> </h2>
+  <% end %>
+<% end %> 
+<%= link_to 'New Expense', new_expense_path %>
