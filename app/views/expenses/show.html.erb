@@ -1,0 +1,10 @@
+<%= image_tag @expense.icon %>
+<h2><%= @expense.name %> </h2>
+
+<h3>Payments</h3>
+<ul>
+  <% @expense.allocations.each do |allocation| %>
+    <li><%= allocation.payment.name %> - <%= allocation.payment.amount %></li>
+  <% end %>
+</ul>
+<%= link_to 'New Payments', new_expense_payment_path(@expense) %>

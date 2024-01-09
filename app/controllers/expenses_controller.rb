@@ -3,6 +3,10 @@ class ExpensesController < ApplicationController
     @expenses = current_user.expenses
   end
 
+  def show
+    @expense = current_user.expenses.includes(allocations: :payments).order(created_at: :desc).find(params[:id])
+  end
+
   def new
     @expense = current_user.expenses.build
   end
