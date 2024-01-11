@@ -5,7 +5,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 10px;
+}
+
+.common-nav {
+  width: 100vw;
+  background-color: #3878c2;
   padding: 10px;
+}
+
+.back-home {
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: 900;
+  font-size: 1.5rem;
 }
 
 .form-title {
