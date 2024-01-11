@@ -1,13 +1,16 @@
 class ExpensesController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!
-  
+
   def index
     @expenses = current_user.expenses
   end
 
   def show
-    @expense = current_user.expenses.includes(allocations: { payment: :allocations }).order('allocations.created_at DESC').find(params[:id])
+    @expense = current_user.expenses
+      .includes(allocations: { payment: :allocations })
+      .order('allocations.created_at DESC')
+      .find(params[:id])
   end
 
   def new

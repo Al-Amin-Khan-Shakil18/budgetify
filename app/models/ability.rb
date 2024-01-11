@@ -1,10 +1,8 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
   def initialize(current_user)
-    @user = current_user ||= User.new
+    @user = current_user || User.new
 
     can :read, :all
     can :manage, Expense
