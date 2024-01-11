@@ -1,6 +1,5 @@
 class ExpensesController < ApplicationController
   load_and_authorize_resource
-  before_action :update_allowed_parameters, if: :devise_controller?
   before_action :authenticate_user!
   
   def index
@@ -8,7 +7,7 @@ class ExpensesController < ApplicationController
   end
 
   def show
-    @expense = current_user.expenses.includes(allocations: :payment).order(created_at: :desc).find(params[:id])
+    @expense = current_user.expenses.includes(allocations: { payment: :allocations }).order('allocations.created_at DESC').find(params[:id])
   end
 
   def new
