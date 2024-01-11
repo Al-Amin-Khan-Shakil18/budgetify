@@ -1,24 +1,31 @@
-<h2> New Payment </h2>
+<section class="new-expense-section">
+  <nav class="common-nav">
+    <%= link_to "←", expense_path(@expense), class: "back-home" %>
+  </nav>
 
-<%= form_with(model: [@expense, @payment], url: expense_payments_path(@expense), method: :post, id: 'payment-form') do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
+  <h2 class="form-title"> New Payment </h2>
 
-  <div>
-    <%= form.label :amount %>
-    <%= form.number_field :amount %>
-  </div>
+  <%= form_with(model: [@expense, @payment], url: expense_payments_path(@expense), method: :post, id: 'payment-form', class: "expense-form") do |form| %>
+    <div>
+      <%= form.label :name, class: "form-label" %>
+      <%= form.text_field :name, class: "form-input" %>
+    </div>
 
-  <div>
-    <% @expenses.each_with_index do |expense, index| %>
-      <%= check_box_tag 'payment[expense_ids][]', expense.id %>
-      <%= label_tag "payment_expense_#{expense.id}", expense.name %> <br>
-    <% end %>
-  </div>
+    <div>
+      <%= form.label :amount, class: "form-label" %>
+      <%= form.number_field :amount, class: "form-input" %>
+    </div>
 
-  <div>
-    <%= form.submit 'Create Payment' %>
-  </div>
-<% end %>
+    <div class="checkboxes">
+      <div class: "form-label">Select Expenses </div>
+      <% @expenses.each_with_index do |expense, index| %>
+        <%= check_box_tag 'payment[expense_ids][]', expense.id %>
+        <%= label_tag "payment_expense_#{expense.id}", expense.name %> <br>
+      <% end %>
+    </div>
+
+    <div>
+      <%= form.submit 'Create Payment', class: 'submit-btn' %>
+    </div>
+  <% end %>
+</section>

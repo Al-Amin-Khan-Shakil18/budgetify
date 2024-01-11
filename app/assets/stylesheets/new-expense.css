@@ -1,7 +1,7 @@
 .new-expense-section {
   background-color: #ececec;
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,4 +51,8 @@
   border: 1px solid #a5a3a3;
   border-radius: 4px;
   align-self: flex-start;
+}
+
+.expense-form .checkboxes {
+  display: block;
 }
