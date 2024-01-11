@@ -1,5 +1,7 @@
 class PaymentsController < ApplicationController
   load_and_authorize_resource
+  before_action :update_allowed_parameters, if: :devise_controller?
+  before_action :authenticate_user!
   
   def new
     @payment = current_user.payments.build
