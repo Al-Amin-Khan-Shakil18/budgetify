@@ -4,7 +4,7 @@ class ExpensesController < ApplicationController
   end
 
   def show
-    @expense = current_user.expenses.includes(allocations: :payments).order(created_at: :desc).find(params[:id])
+    @expense = current_user.expenses.includes(allocations: :payment).order(created_at: :desc).find(params[:id])
   end
 
   def new

@@ -1,3 +1,4 @@
+<%= button_to "log out", destroy_user_session_path, method: :delete %>
 <% @expenses.each do |expense| %>
   <%= link_to expense_path(expense) do %>
   <%= image_tag expense.icon %>
