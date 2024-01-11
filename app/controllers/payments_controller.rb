@@ -1,4 +1,6 @@
 class PaymentsController < ApplicationController
+  load_and_authorize_resource
+  
   def new
     @payment = current_user.payments.build
     @expense = current_user.expenses.find(params[:expense_id])
