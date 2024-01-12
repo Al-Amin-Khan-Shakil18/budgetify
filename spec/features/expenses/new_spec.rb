@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Expenses::News", type: :feature do
+RSpec.feature 'Expenses::News', type: :feature do
   before(:each) do
     @user = User.create(
       id: 2,
@@ -12,11 +12,6 @@ RSpec.feature "Expenses::News", type: :feature do
     @expense1 = Expense.create(
       name: 'Expense 2',
       icon: fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'icon.png'), 'image/png'),
-      user_id: @user.id
-    )
-    @expense2 = Expense.create(
-      name: 'Expense 3',
-      icon: fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'icon2.png'), 'image/png'),
       user_id: @user.id
     )
 
@@ -38,6 +33,6 @@ RSpec.feature "Expenses::News", type: :feature do
   scenario 'User tries to create a new expense with invalid data' do
     click_button 'Save'
 
-    expect(page).to have_content("New Expense")
+    expect(page).to have_content('New Expense')
   end
 end

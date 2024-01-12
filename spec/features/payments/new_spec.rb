@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Payments::News", type: :feature do
+RSpec.feature 'Payments::News', type: :feature do
   before(:each) do
     @user = User.create(
       id: 2,
@@ -34,6 +34,6 @@ RSpec.feature "Payments::News", type: :feature do
   scenario 'User tries to create a new payment with invalid data' do
     click_button 'Create Payment'
 
-    expect(page).to have_content("New Payment")
+    expect(page).to have_content('New Payment')
   end
 end

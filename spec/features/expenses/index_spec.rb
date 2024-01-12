@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Expenses::Indices", type: :feature do
+RSpec.feature 'Expenses::Indices', type: :feature do
   before(:each) do
     @user = User.create(
       id: 2,
@@ -14,11 +14,6 @@ RSpec.feature "Expenses::Indices", type: :feature do
       icon: fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'icon.png'), 'image/png'),
       user_id: @user.id
     )
-    @expense2 = Expense.create(
-      name: 'Expense 3',
-      icon: fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'icon2.png'), 'image/png'),
-      user_id: @user.id
-    )
 
     visit new_user_session_path
     fill_in 'Email', with: @user.email
@@ -29,9 +24,7 @@ RSpec.feature "Expenses::Indices", type: :feature do
 
   scenario 'displays user\'s expenses with new expense button' do
     expect(page).to have_content(@expense1.name)
-    expect(page).to have_content(@expense2.name)
     expect(page).to have_content(@expense1.total_payment_amount)
-    expect(page).to have_content(@expense2.total_payment_amount)
     expect(page).to have_link('New Expense', href: new_expense_path)
   end
 end

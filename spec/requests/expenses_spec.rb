@@ -70,7 +70,7 @@ RSpec.describe 'Expenses', type: :request do
     it 'should create a new expense' do
       post expenses_path, params: {
         expense: {
-          name: "New Expense",
+          name: 'New Expense',
           icon: fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'icon2.png'), 'image/png')
         }
       }
@@ -84,7 +84,7 @@ RSpec.describe 'Expenses', type: :request do
     it 'should render new template on invalid data' do
       post expenses_path, params: {
         expense: {
-          name: " ",
+          name: ' ',
           icon: fixture_file_upload(Rails.root.join('spec', 'fixtures', 'files', 'icon2.png'), 'image/png')
         }
       }

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.feature "Expenses::Shows", type: :feature do
+RSpec.feature 'Expenses::Shows', type: :feature do
   before(:each) do
     @user = User.create(
       id: 2,

@@ -34,9 +34,9 @@ RSpec.describe 'Payments', type: :request do
         }
       }
 
-      expect {
+      expect do
         post expense_payments_path(@expense), params: payment_params
-      }.to change(Payment, :count).by(1)
+      end.to change(Payment, :count).by(1)
 
       expect(response).to redirect_to(expense_path(@expense))
       expect(flash[:notice]).to eq('Payment was created successfully')
