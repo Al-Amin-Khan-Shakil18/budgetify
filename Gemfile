@@ -53,6 +53,12 @@ group :development, :test do
 
   # Rspec for testing
   gem 'rspec-rails'
+
+  # Capybara gem to help the integration testing
+  gem 'capybara'
+
+  # Webdriver gem is used to see the views
+  gem 'webdriver'
 end
 
 group :development do
@@ -79,3 +85,6 @@ gem 'devise'
 
 # CanCanCan gem for authoraization
 gem 'cancancan'
+
+# This gem helps to test the controller
+gem 'rails-controller-testing'
