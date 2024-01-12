@@ -50,6 +50,15 @@ gem 'bootsnap', require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri mswin mswin64 mingw x64_mingw]
+
+  # Rspec for testing
+  gem 'rspec-rails'
+
+  # Capybara gem to help the integration testing
+  gem 'capybara'
+
+  # Webdriver gem is used to see the views
+  gem 'webdriver'
 end
 
 group :development do
@@ -67,6 +76,15 @@ end
 
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
-  gem 'capybara'
+  # gem 'capybara'
   gem 'selenium-webdriver'
 end
+
+# Devise gem for authentication
+gem 'devise'
+
+# CanCanCan gem for authoraization
+gem 'cancancan'
+
+# This gem helps to test the controller
+gem 'rails-controller-testing'
